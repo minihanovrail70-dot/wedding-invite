@@ -12,16 +12,34 @@
             box-sizing: border-box;
         }
 
-       body {
-    background-image: url('images/background2.jpg');
-    background-size: contain;
-    background-position: top center;
-    background-repeat: no-repeat;
-    background-attachment: scroll;
+      /* Для всех устройств */
+body {
     background-color: #f5e6d3;
     font-family: 'Montserrat', sans-serif;
     color: #2c2b28;
     line-height: 1.4;
+}
+
+/* Для телефонов */
+@media (max-width: 768px) {
+    body {
+        background-image: url('images/background2.jpg');
+        background-size: cover;
+        background-position: top center;
+        background-attachment: scroll;
+        background-repeat: no-repeat;
+    }
+}
+
+/* Для компьютеров */
+@media (min-width: 769px) {
+    body {
+        background-image: url('images/background2.jpg');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+    }
 }
 
         .container {
