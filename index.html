@@ -143,12 +143,33 @@
         .ya-form-wrapper {
             margin: 20px 0;
             padding: 0 20px;
+            position: relative;
+            overflow: hidden;
         }
         .ya-form-wrapper iframe {
             width: 100%;
             min-height: 600px;
             border: none;
             border-radius: 0;
+            display: block;
+        }
+
+        /* Пытаемся скрыть надпись "Создано с помощью Яндекс Форм" */
+        .ya-form-wrapper::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+            background: linear-gradient(to bottom, transparent, #ffffff 80%);
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        /* Дополнительная попытка скрыть через обрезку */
+        .ya-form-wrapper iframe {
+            clip-path: inset(0 0 40px 0);
         }
 
         @media (max-width: 550px) {
@@ -157,6 +178,8 @@
             .countdown-number { font-size: 28px; }
             .anketa-title { font-size: 30px; }
             .ya-form-wrapper iframe { min-height: 700px; }
+            .ya-form-wrapper::after { height: 50px; }
+            .ya-form-wrapper iframe { clip-path: inset(0 0 35px 0); }
         }
     </style>
 </head>
